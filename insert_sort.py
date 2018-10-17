@@ -11,7 +11,7 @@ Created by C. L. Wang on 2018/10/15
 
 def insert_sort(alist):
     """
-    插入排序，
+    插入排序，子序列逐渐有序
     1. 遍历列表，存储当前值cur_val，设置游标pos
     2. 游标大于0和游标的值大于当前值，则移位，同时游标减1；
     3. 将当前值赋予游标的终止位置；
@@ -19,9 +19,9 @@ def insert_sort(alist):
     :param alist: 待排序alist
     :return: None
     """
-    for idx in range(1, len(alist)):
-        cur_val = alist[idx]
-        pos = idx  # 游标
+    for i in range(1, len(alist)):
+        cur_val = alist[i]
+        pos = i  # 游标
         while pos > 0 and alist[pos - 1] > cur_val:
             alist[pos] = alist[pos - 1]
             pos -= 1

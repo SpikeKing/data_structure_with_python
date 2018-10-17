@@ -24,11 +24,11 @@ def shell_sort(alist):
     gap = len(alist) // 2
     while gap > 0:
         for s_pos in range(gap):
-            gap_insert_sort(alist, s_pos, gap)
+            insert_sort_gap(alist, s_pos, gap)
         gap = gap // 2
 
 
-def gap_insert_sort(alist, s_pos, gap):
+def insert_sort_gap(alist, s_pos, gap):
     """
     带增量的插入排序
     :param alist: 待排序alist
@@ -36,9 +36,9 @@ def gap_insert_sort(alist, s_pos, gap):
     :param gap: 增量
     :return: None
     """
-    for idx in range(s_pos + gap, len(alist), gap):
-        cur_val = alist[idx]
-        pos = idx
+    for i in range(s_pos + gap, len(alist), gap):
+        cur_val = alist[i]
+        pos = i
         while pos >= gap and alist[pos - gap] > cur_val:
             alist[pos] = alist[pos - gap]
             pos -= gap

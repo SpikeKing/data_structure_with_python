@@ -26,17 +26,16 @@ def binary_search(alist, item):
     """
     first = 0
     last = len(alist) - 1
-    found = False
-    while first <= last and not found:
+    while first <= last:
         mid = (first + last) // 2
         if alist[mid] == item:
             return True
         else:
-            if item < alist[mid]:
+            if alist[mid] > item:
                 last = mid - 1
             else:
                 first = mid + 1
-    return found
+    return False
 
 
 def binary_search_re(alist, item):
@@ -52,15 +51,14 @@ def binary_search_re(alist, item):
     """
     if len(alist) == 0:
         return False
+    mid = len(alist) // 2
+    if alist[mid] == item:
+        return True
     else:
-        mid = len(alist) // 2
-        if alist[mid] == item:
-            return True
+        if alist[mid] > item:
+            return binary_search_re(alist[:mid], item)
         else:
-            if item < alist[mid]:
-                return binary_search_re(alist[:mid], item)
-            else:
-                return binary_search_re(alist[mid + 1:], item)
+            return binary_search_re(alist[mid + 1:], item)
 
 
 def test_of_binary_search():

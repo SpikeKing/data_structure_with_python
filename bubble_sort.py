@@ -6,8 +6,10 @@ Created by C. L. Wang on 2018/10/15
 
 冒泡排序，时间复杂度O(n^2)
 
-冒泡排序通常被认为是低效的排序方式。
-优势是：识别排序列表，和提前终止排序
+冒泡排序，时间复杂度O(n^2)，冒泡排序通常被认为是低效的排序方式。
+优势是：识别排序列表，和提前终止排序。
+短冒泡排序就是提前终止的冒泡排序。
+冒泡排序4行，短冒泡排序8行。
 """
 
 
@@ -27,24 +29,24 @@ def bubble_sort(alist):
                 alist[i], alist[i + 1] = alist[i + 1], alist[i]
 
 
-def short_bubble_sort(alist):
+def bubble_sort_short(alist):
     """
     短冒泡排序，增加exchange，额外终止参数
     1. 初始为True，当为False时终止；
     2. 在第2次循环前，设置为False，交换一次就设置为True，一次未交换则触发终止；
-    3. 9行，增加5行的exchange操作
+    3. 8行，增加5行的exchange操作
     :param alist:
     :return:
     """
-    exchange = True
     for p_num in range(len(alist) - 1, 0, -1):
-        if not exchange:
-            break
         exchange = False
         for i in range(p_num):
             if alist[i] > alist[i + 1]:
                 alist[i], alist[i + 1] = alist[i + 1], alist[i]
                 exchange = True
+        if not exchange:
+            # print('提前终止')
+            return
 
 
 def test_of_bubble_sort():
@@ -52,7 +54,7 @@ def test_of_bubble_sort():
     # bubble_sort(alist)
     # print(alist)
     alist = [17, 20, 26, 93, 77, 31, 44, 55, 54]
-    short_bubble_sort(alist)
+    bubble_sort_short(alist)
     print(alist)
 
 

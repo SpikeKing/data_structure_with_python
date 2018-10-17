@@ -4,7 +4,7 @@
 Copyright (c) 2018. All rights reserved.
 Created by C. L. Wang on 2018/10/16
 
-归并排序，时间复杂度O(nlogn)，合并过程需要额外的空间。
+归并排序，时间复杂度O(nlogn)，合并过程需要额外的空间，左右两个部分。
 """
 
 
@@ -21,23 +21,23 @@ def merge_sort(alist):
     if len(alist) < 2:
         return
     mid = len(alist) // 2
-    left_half = alist[:mid]
-    right_half = alist[mid:]
-    merge_sort(left_half)
-    merge_sort(right_half)
+    left = alist[:mid]
+    right = alist[mid:]
+    merge_sort(left)
+    merge_sort(right)
     i, j, k = 0, 0, 0
-    while i < len(left_half) and j < len(right_half):
-        if left_half[i] < right_half[j]:
-            alist[k] = left_half[i]
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            alist[k] = left[i]
             i += 1
         else:
-            alist[k] = right_half[j]
+            alist[k] = right[j]
             j += 1
         k += 1
-    while i < len(left_half):
-        alist[k:] = left_half[i:]
-    while j < len(right_half):
-        alist[k:] = right_half[i:]
+    if i < len(left):
+        alist[k:] = left[i:]
+    if j < len(right):
+        alist[k:] = right[j:]
 
 
 def test_of_merge_sort():

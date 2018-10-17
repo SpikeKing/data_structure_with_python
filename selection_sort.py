@@ -22,9 +22,9 @@ def selection_sort(alist):
     """
     for p_num in range(len(alist) - 1, 0, -1):
         max_loc = 0
-        for loc in range(1, p_num + 1):
-            if alist[loc] > alist[max_loc]:
-                max_loc = loc
+        for i in range(1, p_num + 1):
+            if alist[i] > alist[max_loc]:
+                max_loc = i
         alist[p_num], alist[max_loc] = alist[max_loc], alist[p_num]
 
 
