@@ -20,16 +20,17 @@ def pal_checker(a_str):
     for ch in a_str:
         q_char.append(ch)
 
-    still_equal = True
+    equal = True
 
     # while的终止条件长度或者Bool
-    while len(q_char) > 1 and still_equal:
+    while len(q_char) > 1:
         first = q_char.pop()
         last = q_char.popleft()
         if first != last:
-            still_equal = False
+            equal = False
+            break
 
-    return still_equal
+    return equal
 
 
 def test_of_pal_checker():

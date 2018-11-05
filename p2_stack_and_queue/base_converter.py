@@ -6,26 +6,26 @@ Created by C. L. Wang on 2018/10/29
 """
 
 
-def base_converter(dec_num, base):
+def base_converter(num, base):
     """
-    将2进制转换为其他进制
-    :param dec_num: 数字
+    将二进制转换为其他进制
+    :param num: 数字
     :param base: 基数
     :return: 数字的字符串
     """
-    digists = '0123456789ABCDEF'  # 支持16位
-    rem_stack = list()
+    digs = '0123456789ABCDEF'  # 支持16位
+    base_stack = list()
 
-    while dec_num > 0:
-        rem = dec_num % base
-        rem_stack.append(rem)
-        dec_num //= base  # 递减一直到0
+    while num > 0:
+        rem = num % base
+        base_stack.append(rem)
+        num //= base  # 递减一直到0
 
-    new_str = ''  # 转换为str
-    while rem_stack:
-        new_str += digists[rem_stack.pop()]
+    res_str = ''  # 转换为str
+    while base_stack:
+        res_str += digs[base_stack.pop()]
 
-    return new_str
+    return res_str
 
 
 if __name__ == '__main__':

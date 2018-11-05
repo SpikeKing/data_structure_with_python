@@ -7,9 +7,9 @@ Created by C. L. Wang on 2018/10/29
 
 
 class Node:
-    def __init__(self, data_val=None):
-        self.data_val = data_val
-        self.next_val = None
+    def __init__(self, data=None):
+        self.data = data
+        self.next_node = None
 
 
 def reverse_list(node_head):
@@ -21,8 +21,8 @@ def reverse_list(node_head):
     prev_node = None
 
     while node_head:
-        next_node = node_head.next_val
-        node_head.next_val = prev_node
+        next_node = node_head.next_node
+        node_head.next_node = prev_node
         prev_node = node_head
         node_head = next_node
 
@@ -35,18 +35,18 @@ def init_list():
     n3 = Node(3)
     n4 = Node(4)
     n5 = Node(5)
-    n1.next_val = n2
-    n2.next_val = n3
-    n3.next_val = n4
-    n4.next_val = n5
+    n1.next_node = n2
+    n2.next_node = n3
+    n3.next_node = n4
+    n4.next_node = n5
     return n1
 
 
 def show_list(node_head):
     head = node_head
     while head:
-        print(head.data_val, end=' ')
-        head = head.next_val
+        print(head.data, end=' ')
+        head = head.next_node
 
 
 def test_of_reverse_list():

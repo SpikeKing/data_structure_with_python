@@ -14,19 +14,19 @@ def hot_potato(name_list, num):
     :param num: 循环数
     :return: 最后剩下的人
     """
-    sim_queue = Queue()
+    q = Queue()
 
     for name in name_list:
-        sim_queue.put(name)
+        q.put(name)
 
-    while sim_queue.qsize() > 1:
+    while q.qsize() > 1:
         for i in range(num - 1):  # 每次都死一个循环，最后一个死亡
-            item = sim_queue.get()
-            sim_queue.put(item)
-        p_name = sim_queue.get()  # 输出死亡
-        print('Dead: {}'.format(p_name))
+            live = q.get()
+            q.put(live)
+        dead = q.get()  # 输出死亡
+        print('Dead: {}'.format(dead))
 
-    return sim_queue.get()
+    return q.get()
 
 
 def test_of_hot_potato():

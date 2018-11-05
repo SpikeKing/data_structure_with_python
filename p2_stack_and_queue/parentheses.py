@@ -11,6 +11,7 @@ def par_checker(symbol_str):
     括号匹配，list包含栈的功能
     append是添加，pop是删除
     https://docs.python.org/2/tutorial/datastructures.html
+    14行
     :param symbol_str: 符号字符串
     :return: 是否
     """
