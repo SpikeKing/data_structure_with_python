@@ -10,6 +10,11 @@ from collections import deque
 
 
 def pal_checker(a_str):
+    """
+    回文，双端队列
+    :param a_str: 输入字符串
+    :return: 是否回文
+    """
     q_char = deque()
 
     for ch in a_str:

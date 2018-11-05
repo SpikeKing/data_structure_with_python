@@ -14,7 +14,7 @@ class Node:
 
 def reverse_list(node_head):
     """
-    链表逆序
+    链表逆序，交换链表
     :param node_head: 链表头
     :return: 新的链表的头结点
     """
