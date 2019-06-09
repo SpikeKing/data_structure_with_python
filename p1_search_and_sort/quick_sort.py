@@ -28,7 +28,7 @@ def quick_sort(alist, fst, lst):
         return
     pivot = alist[fst]
     i, j = fst + 1, lst
-    while i < j:
+    while i <= j:  # 增加等号，用于移动中心轴位置，最后交换使用
         while alist[i] < pivot:
             i += 1
         while alist[j] > pivot:
@@ -58,7 +58,8 @@ def quick_sort_v2(alist):
 
 
 def test_of_quick_sort():
-    alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+    # alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+    alist = [54, 26, 93, 17, 77, 56, 26, 55, 20]
     quick_sort(alist, 0, len(alist) - 1)
     print(alist)
     # alist = quick_sort_v2(alist)
